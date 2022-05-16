@@ -10,7 +10,7 @@ using MyFirstWebApp.Model;
 
 namespace MyFirstWebApp.Migrations
 {
-    [DbContext(typeof(BooksContext))]
+    [DbContext(typeof(LibraryManagementContext))]
     [Migration("20220512172430_InitialMigration")]
     partial class InitialMigration
     {

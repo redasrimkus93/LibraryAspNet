@@ -44,7 +44,7 @@ namespace MyFirstWebApp.Controllers
         [HttpDelete]
         public ActionResult DeleteBook([FromQuery] int id)
         {
-            _booksRepository.DeteleBook(id);
+            _booksRepository.DeteteBook(id);
             return Ok();
         } 
 

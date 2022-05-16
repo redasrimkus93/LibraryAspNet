@@ -13,7 +13,7 @@ builder.Services.AddTransient<ProductService>();
 builder.Services.AddTransient<BooksRepository>();
 builder.Services.AddControllers();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<BooksContext>(x => x.UseSqlServer(connectionString));
+builder.Services.AddDbContext<LibraryManagementContext>(x => x.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

@@ -9,7 +9,7 @@ using MyFirstWebApp.Model;
 
 namespace MyFirstWebApp.Migrations
 {
-    [DbContext(typeof(BooksContext))]
+    [DbContext(typeof(LibraryManagementContext))]
     partial class BooksContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

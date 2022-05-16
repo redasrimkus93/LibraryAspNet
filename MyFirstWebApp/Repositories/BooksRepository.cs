@@ -6,9 +6,9 @@ namespace MyFirstWebApp.Repositories
 {
     public class BooksRepository
     {
-        private readonly BooksContext _context;
+        private readonly LibraryManagementContext _context;
 
-        public BooksRepository(BooksContext context)
+        public BooksRepository(LibraryManagementContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace MyFirstWebApp.Repositories
             return _context.Books.FirstOrDefault(x => x.Id == id);
         }
 
-        public void DeteleBook(int id)
+        public void DeteteBook(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.Id == id);
             if (book != null)
