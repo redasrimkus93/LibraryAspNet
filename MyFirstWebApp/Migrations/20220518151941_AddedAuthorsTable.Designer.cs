@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyFirstWebApp.Model;
 
@@ -11,9 +12,10 @@ using MyFirstWebApp.Model;
 namespace MyFirstWebApp.Migrations
 {
     [DbContext(typeof(LibraryManagementContext))]
-    partial class BooksContextModelSnapshot : ModelSnapshot
+    [Migration("20220518151941_AddedAuthorsTable")]
+    partial class AddedAuthorsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

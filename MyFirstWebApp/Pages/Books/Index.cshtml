@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-12 border p-2 mt-2">
-        <form>
+        <form method="post">
             @if (Model.Books.Count > 0)
             {
                 <table class="table table-striped border-1">
@@ -25,21 +25,28 @@
                         <th>
                             <label asp-for="Books.FirstOrDefault().Content"></label>
                         </th>
+                        <th>
+                            <label asp-for="Books.FirstOrDefault().Author.Name"></label>
+                        </th>
                         <th></th>
 
                     </tr>
-                    @foreach (var item in Model.Books)
+                    @foreach (var book in Model.Books)
                     {
                         <tr>
                             <td>
-                                @item.Title
+                                @book.Title
                             </td>
                             <td>
-                                @item.Content
+                                @book.Content
                             </td>
                             <td>
-                                <button class="btn btn-danger btn-sm">Delete</button>
-                                <button class="btn btn-success btn-sm">Edit</button>
+                                @book.Author.Name
+                            </td>
+
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@book.Id"  onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
+                                <a asp-page="Edit" asp-route-id="@book.Id"  class="btn btn-success btn-sm">Edit</a>
                             </td>
                         </tr>
                     }

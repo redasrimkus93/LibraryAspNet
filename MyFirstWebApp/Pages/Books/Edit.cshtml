@@ -1,5 +1,5 @@
 ﻿@page
-@model MyFirstWebApp.Pages.Books.CreateModel
+@model MyFirstWebApp.Pages.Books.EditModel
 @{
 }
 
@@ -9,6 +9,7 @@
 
 <div class="border container" style="padding:30px">
     <form method="post">
+        <input type="hidden" asp-for="Book.Id" />
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
             <div class="col-4">
@@ -30,15 +31,14 @@
 
         </div>
         <div class="form-group">
-            <label asp-for="Book.Author" ></label>
-            <select asp-for="Book.AuthorId" class="form-control" asp-items="@Model.AuthorsNames">
-                <option value="">-- Select Author --</option>
-            </select>
-            
+            <label asp-for="Book.Author" class="control-label"></label>
+            <select asp-for="Book.AuthorId" class="form-control"
+                    asp-items="@Model.AuthorsNames"></select>
+                    <span asp-validation-for="Book.Author" class="text-danger"></span>
         </div>
         <div class="form-group row mt-4">
             <div class="col-3 offset-4">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
             <div class="col-3">
                 <a asp-page="Index" class="btn btn-success">Back</a>

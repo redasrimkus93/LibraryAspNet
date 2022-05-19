@@ -15,7 +15,7 @@ namespace MyFirstWebApp.Repositories
 
         public List<Book> GetBooks()
         {
-            return _context.Books.ToList();
+            return _context.Books.Include(book => book.Author).ToList();
         }
 
         public Book GetBook(int id)
