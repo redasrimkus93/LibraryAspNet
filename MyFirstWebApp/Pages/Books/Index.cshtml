@@ -13,7 +13,21 @@
         <a asp-page="Create" class="btn btn-info">Create book</a>
     </div>
 
+    <div>
+        <p>
+            <form>
+                Title: <input type="text" asp-for=SearchInputTitle />
+                <select asp-items="Model.Authors" asp-for="SelectedAuthorName">
+                    <option value="">Select author</option>
+                    <option value="Create">Create author</option>
+                </select>
+                <input type="submit" value="Search" />
+            </form>
+        </p>
+
+    </div>
     <div class="col-12 border p-2 mt-2">
+
         <form method="post">
             @if (Model.Books.Count > 0)
             {
@@ -45,8 +59,8 @@
                             </td>
 
                             <td>
-                                <button asp-page-handler="Delete" asp-route-id="@book.Id"  onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
-                                <a asp-page="Edit" asp-route-id="@book.Id"  class="btn btn-success btn-sm">Edit</a>
+                                <button asp-page-handler="Delete" asp-route-id="@book.Id" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
+                                <a asp-page="Edit" asp-route-id="@book.Id" class="btn btn-success btn-sm">Edit</a>
                             </td>
                         </tr>
                     }

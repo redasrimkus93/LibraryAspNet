@@ -38,7 +38,7 @@ namespace MyFirstWebApp.Pages.Books
                 return Page();
             }
             _booksRepository.CreateBook(Book);
-            return RedirectToPage("Index");
+            return RedirectToPage("Category/Index");
 
 /*            var emptyBook = new Book();
 

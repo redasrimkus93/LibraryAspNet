@@ -13,9 +13,24 @@ namespace MyFirstWebApp.Repositories
             _context = context;
         }
 
-        public List<Book> GetBooks()
+/*        public List<Book> GetBooks()
         {
             return _context.Books.Include(book => book.Author).ToList();
+        }*/
+
+        public List<Book> GetBooks(string title = null, string authorName = null)
+        {
+            var books = _context.Books.Include(b=> b.Author).Select(book => book);
+            if (!string.IsNullOrEmpty(title))
+            {
+                books = books.Where(book => book.Title.Contains(title));
+            }
+            if (!string.IsNullOrEmpty(authorName))
+            {
+                books = books.Where(book => book.Author.Name.Contains(authorName));
+            }
+
+            return books.ToList();
         }
 
         public Book GetBook(int id)
@@ -43,6 +58,11 @@ namespace MyFirstWebApp.Repositories
         {
             _context.Add(book);
             _context.SaveChanges();
+        }
+
+        public List<string> GetBooksAuthors()
+        {
+            return _context.Books.Include(b => b.Author).Select(b => b.Author.Name).Distinct().ToList();
         }
 
 
